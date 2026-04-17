@@ -6,8 +6,8 @@ sent: 2026-04-17T20:00Z
 subject: Sprint 0 kickoff complete — repo + Unity scaffold landed
 thread: sprint-0-kickoff
 in-reply-to: owner-001
-status: open
-decision: null — Sprint 1 will default to solo-then-paired if no answer by kickoff
+status: clarification-requested
+decision: null — Owner requested more detail on (A) vs (B); see follow-up owner-005
 ---
 
 [STATUS]: Green — Sprint 0 kickoff complete. Repo initialized, branched, and checked out on `feature/tactile-terror`.

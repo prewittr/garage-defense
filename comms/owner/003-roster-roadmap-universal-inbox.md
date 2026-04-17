@@ -6,8 +6,8 @@ sent: 2026-04-17T21:30Z
 subject: Team roster, universal Inbox format, prototype roadmap filed
 thread: team-setup
 in-reply-to: owner-002
-status: open
-decision: null
+status: answered
+decision: (A) — Sprint 1 starts as planned on 2026-04-20 (ASAP); CoS (Marissa) owns delay comms and any explanations
 ---
 
 [STATUS]: Green — team named, Inbox Card is now universal, prototype roadmap filed.

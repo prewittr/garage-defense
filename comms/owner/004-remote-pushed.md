@@ -5,8 +5,8 @@ to: Owner (Roderick Prewitt)
 sent: 2026-04-17T23:00Z
 subject: Remote live — three branches pushed to github.com/prewittr/garage-defense
 thread: repo-init
-status: open
-decision: null
+status: answered
+decision: (B) — authorized to install gh CLI and configure branch protection via API
 ---
 
 [STATUS]: Green — remote live, three branches tracking origin.
