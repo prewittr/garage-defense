@@ -6,8 +6,8 @@ sent: 2026-04-18T15:20Z
 subject: All three Unity secrets live — Sprint 1 CI is unblocked
 thread: ci-bootstrap
 in-reply-to: owner-008
-status: open
-decision: null — FYI + one small status-check commitment shift
+status: answered
+decision: (A) — defer required_status_checks flip until first green PR CI run on Monday
 ---
 
 [STATUS]: Green — every hard blocker for Sprint 1 kickoff is cleared.
