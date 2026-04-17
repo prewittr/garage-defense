@@ -48,7 +48,7 @@ Sprint 0 proved we can stand up a team and a repo. Now we have to prove the **co
 - **Exit:** 60 FPS locked on iPhone 12 + Pixel 6 baseline during peak impact.
 
 ### Sprint 4 — The Proof (2026-05-11 → 2026-05-15)
-- **Co-Leads:** Darius Abernathy (`monetization-strategist`) + Jasmine Whitfield
+- **Co-Leads:** Kelvin Abernathy (`monetization-strategist`) + Jasmine Whitfield
 - **Support:** Terrell Vaughn (telemetry pipe)
 - **Tickets:** RPM-005 (scarcity squeeze + Ghost Refill telemetry) · RPM-006 (fail state)
 - **Deliverable:** Scrap-exhaustion curve tuned so players deplete T−10s from wave end. Ghost Refill tap-zone live with PlayFab telemetry. "RESOURCES EXHAUSTED" fail state with 3s dramatic pause.
@@ -65,11 +65,11 @@ Sprint 0 proved we can stand up a team and a repo. Now we have to prove the **co
 ### Sprint 5 — Polish or Pivot (2026-05-25 → 2026-05-29)
 - **Go Path (tickets RPM-100+):**
   - Onboarding tutorial (Simone).
-  - PlayFab Economy V2 wiring + first Refill IAP product (Darius + Terrell).
+  - PlayFab Economy V2 wiring + first Refill IAP product (Kelvin + Terrell).
   - Receipt validation for a single platform (Terrell).
 - **Pivot Path:**
   - Feel re-pass led by Malik + Simone.
-  - Redefine the scarcity curve with Darius.
+  - Redefine the scarcity curve with Kelvin.
   - Re-gate end of Sprint 5.
 
 ---

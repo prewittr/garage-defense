@@ -134,7 +134,7 @@ Perf: 60 FPS locked — iPhone 12, Pixel 6, Steam Deck
 | Agent ID | Name (Pronouns) | Role | Channel |
 |---|---|---|---|
 | `command-relay` | **Marissa Holloway** (she/her) | Chief of Staff / Owner proxy | 1, 2 |
-| `monetization-strategist` | **Darius Abernathy** (he/him) | Product & Revenue | 2 |
+| `monetization-strategist` | **Kelvin Abernathy** (he/him) | Product & Revenue | 2 |
 | `atmosphere-architect` | **Simone Carver** (she/her) | Lead Game Designer | 2 |
 | `juice-vfx-engineer` | **Malik Ransom** (he/him) | Lead Technical Artist | 3 |
 | `performance-hardener` | **Kendra Brooks** (she/her) | Lead Dev & Git Master | 3 |
