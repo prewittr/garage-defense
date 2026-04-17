@@ -40,7 +40,7 @@ Land the drag-to-repair core loop with first-pass juice running inside a clean m
 | **Fri 04-17** | **14:00** | **Sprint Planning** (kickoff) | 30 min | Marissa |
 | Fri 04-17 | 14:30 | Pairing Agreement (RPM-001) | 30 min | Kendra + Malik |
 | Fri 04-17 | 15:00 → EOD | RPM-007 work begins | — | Terrell + Kendra |
-| Sat/Sun 04-18/19 | — | Optional / async only | — | No CoS in chair |
+| Sat/Sun 04-18/19 | by 10:00 each day | **Daily Standup** (standard async cadence) | 3-line card | each → Marissa |
 | Mon–Fri | by 10:00 | **Daily Standup** (async Inbox Card) | 3-line card | each → Marissa |
 | Mon 04-20 | 14:00 | **Tech Design Review** (RPM-001) | 20 min | Kendra |
 | Mon 04-20 | async | **ADR-001 Review** (VContainer) | — | Kendra proposes |
