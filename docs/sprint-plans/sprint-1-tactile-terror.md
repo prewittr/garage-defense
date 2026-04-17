@@ -1,9 +1,10 @@
-# Sprint 1 — The Bones (2026-04-20 → 2026-04-24)
+# Sprint 1 — The Bones (2026-04-17 14:00 → 2026-04-24 14:00)
 
 **Facilitator:** Marissa Holloway (`command-relay`)
-**Date drafted:** 2026-04-17 (pre-committed in anticipation of Mon 9am planning ceremony)
-**Date committed (locked):** pending Mon 2026-04-20 09:00
-**Status:** Draft (locks at planning ceremony)
+**Date drafted:** 2026-04-17
+**Date committed (locked):** 2026-04-17 14:00 — Owner-mandated early kickoff per [owner-014](../../comms/owner/014-starting-sprint-early.md)
+**Status:** **Committed / Active**
+**One-time cadence exception:** this sprint runs Fri→Fri (7 calendar days). Sprint 2 onward resumes standard Mon–Fri.
 
 ## Goal
 Land the drag-to-repair core loop with first-pass juice running inside a clean module architecture, gated by a CI-enforced <12ms input-latency budget. By Friday EOD the team has a runnable `TactileTerror_S1` scene on Windows Standalone and (at minimum) the Editor that can be demoed to the Owner.
@@ -36,12 +37,15 @@ Land the drag-to-repair core loop with first-pass juice running inside a clean m
 
 | Day | Time | Ceremony | Duration | Facilitator |
 |---|---|---|---|---|
-| Mon 04-20 | 09:00 | **Sprint Planning** | 30 min | Marissa |
+| **Fri 04-17** | **14:00** | **Sprint Planning** (kickoff) | 30 min | Marissa |
+| Fri 04-17 | 14:30 | Pairing Agreement (RPM-001) | 30 min | Kendra + Malik |
+| Fri 04-17 | 15:00 → EOD | RPM-007 work begins | — | Terrell + Kendra |
+| Sat/Sun 04-18/19 | — | Optional / async only | — | No CoS in chair |
 | Mon–Fri | by 10:00 | **Daily Standup** (async Inbox Card) | 3-line card | each → Marissa |
-| Tue 04-21 | 14:00 | **Tech Design Review** (RPM-001) | 20 min | Kendra |
-| Tue 04-21 | any time | **ADR-001 Review** (VContainer) async | — | Kendra proposes |
+| Mon 04-20 | 14:00 | **Tech Design Review** (RPM-001) | 20 min | Kendra |
+| Mon 04-20 | async | **ADR-001 Review** (VContainer) | — | Kendra proposes |
 | Wed 04-22 | 14:00 | **Backlog Refinement** (Sprint 2) | 30 min | Marvin |
-| Fri 04-24 | 14:00 | **Sprint Review** | 20 min | Marissa |
+| Fri 04-24 | 14:00 | **Sprint Review** (end of sprint) | 20 min | Marissa |
 | Fri 04-24 | 14:20 | **Retrospective** | 10 min | Marissa |
 | Fri 04-24 | 16:00 | **Release Cut** (tri-sign) if stable | 15 min | Terrell |
 
@@ -89,11 +93,13 @@ RPM-007 ─┐                        │
 
 | Day | Tickets Done | In Progress | Blockers |
 |---|---|---|---|
-| Mon | | | |
-| Tue | | | |
-| Wed | | | |
-| Thu | | | |
-| Fri | | | |
+| Fri 04-17 (pm) | | | |
+| Sat/Sun | (optional/async) | | |
+| Mon 04-20 | | | |
+| Tue 04-21 | | | |
+| Wed 04-22 | | | |
+| Thu 04-23 | | | |
+| Fri 04-24 (am) | | | |
 
 ## Spillover (appended if needed)
 

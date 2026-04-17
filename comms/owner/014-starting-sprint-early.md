@@ -6,8 +6,8 @@ sent: 2026-04-17T19:30Z
 subject: Starting Sprint 1 early (tonight / weekend)? — honest CoS read
 thread: sprint-1-kickoff
 in-reply-to: owner-013
-status: open
-decision: null
+status: answered
+decision: (A) — Owner overrides CoS recommendation; clock-start Fri 2026-04-17 14:00. Sprint 1 runs Fri→Fri, Sprint Review same 14:00 slot next Friday. Future sprints resume Mon–Fri.
 ---
 
 [STATUS]: Yellow — Owner is considering an early start; CoS position is *protect the cadence,* but the call is yours.

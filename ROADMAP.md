@@ -26,7 +26,7 @@ Sprint 0 proved we can stand up a team and a repo. Now we have to prove the **co
 - **Tickets:** repo init, Unity 6 skeleton, CI skeleton, team protocol.
 - **Exit (met):** commit `deb2fbb` on `main`; `develop` + `feature/tactile-terror` branched.
 
-### Sprint 1 — The Bones (2026-04-20 → 2026-04-24)
+### Sprint 1 — The Bones (2026-04-17 14:00 → 2026-04-24 14:00) · one-time Fri→Fri cadence per [owner-014](comms/owner/014-starting-sprint-early.md)
 - **Co-Leads:** Kendra Brooks (`performance-hardener`) + Malik Ransom (`juice-vfx-engineer`) — **paired on RPM-001 per decision owner-005**
 - **Support:** Terrell Vaughn (`digital-pit-boss`), Jasmine Whitfield (`qa-breakdown-analyst`)
 - **Tickets:** RPM-001 (drag-to-repair core loop + first-pass juice) · RPM-007 (prototype harness) · RPM-008 (input latency gate)
