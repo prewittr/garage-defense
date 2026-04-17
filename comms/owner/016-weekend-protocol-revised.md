@@ -6,8 +6,8 @@ sent: 2026-04-17T14:15Z
 subject: Weekend protocol revised — full team availability ON
 thread: sprint-1-kickoff
 in-reply-to: owner-015
-status: open
-decision: null — correction + one small choice on Owner card cadence
+status: answered
+decision: (A) — live firehose; every Owner-directed Inbox Card fires as written, Sat/Sun included
 ---
 
 [STATUS]: Green — correcting the weekend-silence note I put in owner-015.
