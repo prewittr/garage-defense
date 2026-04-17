@@ -1,0 +1,56 @@
+# Default line ending normalization
+* text=auto eol=lf
+
+# Unity YAML — force text + smart merge
+*.unity            merge=unityyamlmerge eol=lf
+*.prefab           merge=unityyamlmerge eol=lf
+*.asset            merge=unityyamlmerge eol=lf
+*.meta             merge=unityyamlmerge eol=lf
+*.mat              merge=unityyamlmerge eol=lf
+*.anim             merge=unityyamlmerge eol=lf
+*.controller       merge=unityyamlmerge eol=lf
+*.physicMaterial   merge=unityyamlmerge eol=lf
+*.physicsMaterial2D merge=unityyamlmerge eol=lf
+*.playable         merge=unityyamlmerge eol=lf
+*.mask             merge=unityyamlmerge eol=lf
+*.brush            merge=unityyamlmerge eol=lf
+*.flare            merge=unityyamlmerge eol=lf
+*.fontsettings     merge=unityyamlmerge eol=lf
+*.guiskin          merge=unityyamlmerge eol=lf
+*.giparams         merge=unityyamlmerge eol=lf
+*.renderTexture    merge=unityyamlmerge eol=lf
+*.spriteatlas      merge=unityyamlmerge eol=lf
+*.terrainlayer     merge=unityyamlmerge eol=lf
+*.mixer            merge=unityyamlmerge eol=lf
+*.shadervariants   merge=unityyamlmerge eol=lf
+*.preset           merge=unityyamlmerge eol=lf
+*.asmdef           text eol=lf
+*.asmref           text eol=lf
+
+# Source
+*.cs      text diff=csharp eol=lf
+*.shader  text eol=lf
+*.cginc   text eol=lf
+*.hlsl    text eol=lf
+*.compute text eol=lf
+
+# LFS — binary art / audio / video
+*.psd  filter=lfs diff=lfs merge=lfs -text
+*.psb  filter=lfs diff=lfs merge=lfs -text
+*.fbx  filter=lfs diff=lfs merge=lfs -text
+*.blend filter=lfs diff=lfs merge=lfs -text
+*.obj  filter=lfs diff=lfs merge=lfs -text
+*.wav  filter=lfs diff=lfs merge=lfs -text
+*.ogg  filter=lfs diff=lfs merge=lfs -text
+*.mp3  filter=lfs diff=lfs merge=lfs -text
+*.mp4  filter=lfs diff=lfs merge=lfs -text
+*.mov  filter=lfs diff=lfs merge=lfs -text
+*.png  filter=lfs diff=lfs merge=lfs -text
+*.jpg  filter=lfs diff=lfs merge=lfs -text
+*.jpeg filter=lfs diff=lfs merge=lfs -text
+*.tga  filter=lfs diff=lfs merge=lfs -text
+*.tif  filter=lfs diff=lfs merge=lfs -text
+*.tiff filter=lfs diff=lfs merge=lfs -text
+*.exr  filter=lfs diff=lfs merge=lfs -text
+*.hdr  filter=lfs diff=lfs merge=lfs -text
+*.unitypackage filter=lfs diff=lfs merge=lfs -text
