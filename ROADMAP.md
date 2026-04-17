@@ -27,11 +27,11 @@ Sprint 0 proved we can stand up a team and a repo. Now we have to prove the **co
 - **Exit (met):** commit `deb2fbb` on `main`; `develop` + `feature/tactile-terror` branched.
 
 ### Sprint 1 — The Bones (2026-04-20 → 2026-04-24)
-- **Lead:** Kendra Brooks (`performance-hardener`)
+- **Co-Leads:** Kendra Brooks (`performance-hardener`) + Malik Ransom (`juice-vfx-engineer`) — **paired on RPM-001 per decision owner-005**
 - **Support:** Terrell Vaughn (`digital-pit-boss`), Jasmine Whitfield (`qa-breakdown-analyst`)
-- **Tickets:** RPM-001 (drag-to-repair core loop) · RPM-007 (prototype harness) · RPM-008 (input latency gate)
-- **Deliverable:** Door sprite + drag-to-repair logic playable in the Editor. **No art. No feel layer.** Placeholder rectangles only.
-- **Exit:** p95 input latency <12ms on desktop profiler. CI green on PR → `develop`.
+- **Tickets:** RPM-001 (drag-to-repair core loop + first-pass juice) · RPM-007 (prototype harness) · RPM-008 (input latency gate)
+- **Deliverable:** Drag-to-repair playable in the Editor with co-developed first-pass juice: screen-shake magnitude tied to HP%, basic weld spark VFX, placeholder clink-hiss SFX. Placeholder door/scrap sprites. Full VFX Graph + final shaders arrive Sprint 3.
+- **Exit:** p95 input latency <12ms on desktop profiler (juice must not blow the gate). CI green on PR → `develop`.
 
 ### Sprint 2 — The Pulse (2026-04-27 → 2026-05-01)
 - **Co-Leads:** Kendra Brooks + Simone Carver (`atmosphere-architect`)

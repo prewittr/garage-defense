@@ -6,8 +6,8 @@ sent: 2026-04-18T00:30Z
 subject: Branch protection live on main + develop; gh CLI wired
 thread: repo-init
 in-reply-to: owner-004
-status: open
-decision: null
+status: answered
+decision: (A) — Owner delivers UNITY_LICENSE before Sprint 1 kickoff (2026-04-20); Terrell wires required_status_checks same day
 ---
 
 [STATUS]: Green — GitFlow gates are now enforced at the origin.

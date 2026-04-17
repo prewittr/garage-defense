@@ -6,8 +6,8 @@ sent: 2026-04-17T23:45Z
 subject: RPM-001 start order — (A) vs (B) clarified
 thread: sprint-0-kickoff
 in-reply-to: owner-002
-status: open
-decision: null
+status: answered
+decision: (B) — paired; Kendra + Malik co-develop RPM-001 from Day 1
 ---
 
 Owner, re-posing the RPM-001 question with concrete mechanics on both options.
