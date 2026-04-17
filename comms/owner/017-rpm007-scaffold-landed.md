@@ -6,8 +6,8 @@ sent: 2026-04-17T14:30Z
 subject: RPM-007 scaffold landed on feat/rpm-007 — PR timing A/B
 thread: sprint-1-kickoff
 in-reply-to: owner-015
-status: open
-decision: null
+status: answered
+decision: (A) — open draft PR now; expose first-run CI flake risk today while team is hot
 ---
 
 [STATUS]: Green — Sprint 1 has its first real code on `origin/feat/rpm-007`.
