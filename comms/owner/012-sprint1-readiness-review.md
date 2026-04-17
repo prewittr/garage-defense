@@ -6,8 +6,8 @@ sent: 2026-04-18T18:00Z
 subject: Sprint 1 readiness review — GO with one watch-item
 thread: sprint-1-kickoff
 in-reply-to: owner-007, owner-011
-status: open
-decision: null
+status: answered
+decision: (A) — GO as planned; Marvin drafts tickets now to close the weekend watch-item early
 ---
 
 [STATUS]: Green — Sprint 1 "The Bones" is **GO for Monday 2026-04-20** with a single tracked watch-item (Marvin's pre-sprint ticket delivery by Sunday EOD).
