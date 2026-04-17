@@ -1,140 +1,254 @@
-# Development Process v1.0
+# Rpm: Redline / Deadline — Agile Playbook v2.0
 
-> Canonical reference for how work flows from an Owner vision directive to a shipped feature.
-> Companion to [CLAUDE.md](CLAUDE.md) — where CLAUDE.md defines **who** we are and **how** we communicate, PROCESS.md defines **what** we do day-to-day.
+> Canonical reference for how work flows from an Owner vision directive to a shipped build.
+> Companion to [CLAUDE.md](CLAUDE.md) (who we are + how we communicate) and [ROADMAP.md](ROADMAP.md) (what we're building, when).
 
 **Authored by:** Marissa Holloway (`command-relay`) + Claude (process architect)
-**Version:** 1.0
+**Version:** 2.0
 **Last reviewed:** 2026-04-17
-**Status:** Draft awaiting Owner sign-off on Stage 4 ownership.
+**Status:** Accepted by Owner 2026-04-17.
 
 ---
 
-## The 10-Stage Pipeline
+## 1. Philosophy
+- **Scrum-ish.** 1-week sprints. Weekly release train on stable `develop`.
+- **Async-first.** Inbox Cards > meetings. Every ceremony caps at 30 min.
+- **Single-accountable.** Every artifact has one named owner. No committees.
+- **Shrink-before-sprint.** Tickets leave the backlog only as **Ready**.
+- **Show, don't tell.** Every Sprint Review is a runnable artifact, not slides.
 
-Every feature traverses these stages. Each stage has a trigger, a single accountable owner, a concrete artifact, and a Definition-of-Done condition. Nothing is "in progress" without living in one of these stages.
+## 2. Cadence
+| | |
+|---|---|
+| Sprint length | 1 week (Mon → Fri) |
+| Release train | Weekly `develop` → `main` tag if stable (Friday 4pm cut) |
+| Hotfix path | Cut `hotfix/*` from `main`, merge to both `main` and `develop` |
+| Sprint 0 | Scaffold only; no feature tickets |
 
-| # | Stage | Owner | Input | Output Artifact | DoD |
-|---|---|---|---|---|---|
-| 0 | **Idea** | Owner | Vision | (informal) | Owner can articulate it in 1–2 sentences. |
-| 1 | **Directive** | Owner + Marissa | Idea | Inbox Card ack to Marissa | Marissa can repeat back unambiguously. |
-| 2 | **Decomposition** | Marissa | Directive | Work-stream list (sprint-planning notes) | Each stream has a specialist owner; no overlap. |
-| 3 | **Specification** | Kelvin (PRD) / Simone (Design) | Work stream | `/docs/prd/<feat>.md` or `/docs/design/<feat>.md` | Meets fields mandated in agent system prompt. |
-| 4 | **Elaboration** | **UNASSIGNED (gap)** | PRD + Design | Ticket files `/tickets/RPM-NNN.md` | Meets INVEST — user story, AC, DoD checklist, deps, estimate, risk flags. |
-| 5 | **Sprint Planning** | Marissa (facilitates) | Ready tickets | ROADMAP.md sprint update | Each selected ticket has owner + estimate + confidence ≥ 70%. |
-| 6 | **Implementation** | Kendra (lead) + Malik / Terrell as scoped | Ready tickets | Commits on `feature/*` branches; PR opened to `develop` | Compiles, tests pass locally, no perf regression, PR opened. |
-| 7 | **Code Review** | Kendra | PR | PR approval or review notes | No allocations in hot path, asmdef clean, tests present, docs on public APIs. |
-| 8 | **QA** | Jasmine | Build from PR branch | `Tested-By:` trailer or bug file `/tickets/BUG-NNN.md` | Device-matrix pass, 120-sec purchase path when in scope, S1 bugs zero. |
-| 9 | **Merge** | Terrell | Approved + Tested-By PR | Merge commit on `develop` | Conventional Commit title, `Tested-By:` trailer, CI green, no force-push. |
-| 10 | **Release** | Terrell + Kendra + Marissa (tri-sign) | `develop` at stable SHA | Signed tag on `main`; store uploads when applicable | Sprint DoD met, release notes generated, rollback plan documented. |
+## 3. Agile Roles
 
----
-
-## Where Inbox Cards Fire
-
-The Inbox Card is not noise — it is filed at specific **stage boundaries**, not on every commit.
-
-| Card source | Fired at | Notes |
-|---|---|---|
-| Marissa → Owner | Stage 1 ack, Stage 5 kickoff, Stage 10 release, any redline breach | One card, one decision. |
-| Kelvin → Marissa | End of Stage 3 with PRD link | Internal, Channel 2. |
-| Simone → Marissa | End of Stage 3 with design-doc link | Internal, Channel 2. |
-| BET Lead (if hired) → Marissa | End of Stage 4 with READY ticket list | Internal, Channel 2. |
-| Kendra → Marissa | Stage 6 complete (PR open), Stage 7 block | Escalate only redlines to Owner. |
-| Jasmine → Kendra | Stage 8 pass/fail | Direct to Hardener (Channel 3). |
-| Terrell → Owner | Infra/security P0 only (bypasses Marissa) | Explicit CLAUDE.md exception. |
-
-A cross-stage handoff without a card is a process violation.
-
----
-
-## Rituals (Proposed)
-
-Rituals are lightweight — all async via Inbox Cards — unless explicitly marked synchronous.
-
-| Ritual | Cadence | Owner | Output |
+| Role (agent) | Name | Agile function | Ceremonies owned |
 |---|---|---|---|
-| **Sprint Planning** | Monday of Week 1 | Marissa | Sprint backlog locked in ROADMAP.md; Inbox Card to Owner. |
-| **Backlog Refinement** | Wednesday of Week 1 | BET Lead (or Kelvin+Simone jointly) | Next-sprint tickets move to READY. |
-| **Daily Standup** | Each working day, async | Each specialist | 3-line Inbox Card to Marissa: yesterday / today / blockers. |
-| **Sprint Review** | Friday of Week 1 (or end of sprint) | Marissa | Demo Package + Inbox Card to Owner. |
-| **Retro** | Same day as Review | Marissa | Process amendment proposals if any. |
+| `command-relay` | Marissa Holloway | Scrum Master + CoS | Sprint Planning, Review, Retro |
+| `backlog-elaborator` | Marvin Sinclair | Product Backlog Owner | Backlog Refinement |
+| `monetization-strategist` | Kelvin Abernathy | Lead PM (monetization) | Stage 3 PRDs |
+| `atmosphere-architect` | Simone Carver | Lead Game Designer | Stage 3 design docs |
+| `performance-hardener` | Kendra Brooks | Tech Lead | Tech Design Review, Code Review |
+| `juice-vfx-engineer` | Malik Ransom | Technical Art Lead | Juice contribution to tech design |
+| `digital-pit-boss` | Terrell Vaughn | DevOps / SecOps | CI/CD, Release Cut, ADR co-review |
+| `qa-breakdown-analyst` | Jasmine Whitfield | QA Lead | Test planning, QA gate |
+| `hook-specialist` | Jalen Montgomery | Growth / UA | Store-listing readiness |
 
-Duration target for all synchronous rituals: **≤30 minutes.**
+## 4. The 10-Stage Pipeline
 
----
+Every feature traverses these stages. Each has a trigger, a single accountable owner, a concrete artifact, and a DoD.
 
-## Artifact Layout
+| # | Stage | Owner | Input | Artifact Produced | DoD |
+|---|---|---|---|---|---|
+| 0 | Idea | Owner | Vision | (informal) | Articulable in 1–2 sentences. |
+| 1 | Directive | Owner + Marissa | Idea | Marissa ack Inbox Card | Marissa can repeat back unambiguously. |
+| 2 | Decomposition | Marissa | Directive | Work-stream list | Each stream has a specialist owner. |
+| 3 | Specification | Kelvin (PRD) · Simone (Game Design) · Kendra (Tech Design) | Work stream | PRD · Game Design Doc · Tech Design Doc · ADR proposal if architectural | Docs meet template fields. |
+| 4 | Elaboration | **Marvin (BET Lead)** | Specs | User Story files in `/tickets/` · Test Plans (with Jasmine) | INVEST + DoR met. |
+| 5 | Sprint Planning | Marissa | Ready tickets | `sprint-plan.md` · Owner Inbox Card | Committed tickets have owner + estimate + ≥70% confidence. |
+| 6 | Implementation | Kendra (lead) + Malik / Terrell as scoped | Tickets + specs | Commits on `feature/*` + PR | Compiles, tests pass, PR open. |
+| 7 | Code Review | Kendra | PR | Approval or review notes | No hot-path alloc, asmdef clean, tests present. |
+| 8 | QA | Jasmine | Build from PR | `Tested-By:` trailer OR Bug Report | Device matrix pass, 0 S1/S2. |
+| 9 | Merge | Terrell | Approved + Tested-By PR | Merge commit on `develop` | Conventional Commit title, CI green, no force-push. |
+| 10 | Release | Terrell + Kendra + Marissa (tri-sign) | `develop` at stable SHA | Signed tag on `main` + release notes | Sprint DoD met, rollback plan documented. |
+
+## 5. Workflow States
+
+```
+Backlog → Spec'd → Ready → In Sprint → In Progress → In Review → In QA → Done
+```
+
+| State | Precondition | Held by |
+|---|---|---|
+| Backlog | Feature captured (epic) | Marvin |
+| Spec'd | PRD + Design Doc(s) exist | Marvin |
+| **Ready** | DoR met — see §7 | Marvin |
+| In Sprint | Committed at Sprint Planning | Marissa |
+| In Progress | Assignee picked up | Specialist |
+| In Review | PR opened to `develop` | Kendra |
+| In QA | Code review passed | Jasmine |
+| **Done** | DoD met — see §8 | Marissa (final gate) |
+
+Moving between states requires the owner of the receiving state to accept (or reject with a specific reason).
+
+## 6. Estimation
+T-shirt sizes only. No story points.
+
+| Size | Meaning |
+|---|---|
+| XS | < 1 day |
+| S | 1–2 days |
+| M | 3–5 days (most of a sprint) |
+| L | Full sprint |
+| XL | Break it down. Too big to commit atomic. |
+
+## 7. Definition of Ready (DoR)
+A ticket is Ready only when **all** checked:
+- [ ] INVEST: Independent · Negotiable · Valuable · Estimable · Small · Testable
+- [ ] User story present (As a / I want / So that)
+- [ ] Acceptance criteria in Given/When/Then form
+- [ ] Dependencies identified; blocked-by tags on unmet deps
+- [ ] Estimate agreed (XS/S/M/L)
+- [ ] Test plan sketched (P0 cases minimum)
+- [ ] Owner assigned
+- [ ] Risk flags raised (🔴/🟡/🟢)
+
+Non-Ready tickets **cannot** be committed in Sprint Planning.
+
+## 8. Definition of Done (DoD)
+A ticket is Done only when **all** checked:
+- [ ] Code review passed (Kendra)
+- [ ] CI green (Terrell) — compile, test runner, latency gate
+- [ ] QA passed on device matrix (Jasmine) — `Tested-By:` trailer on merge commit
+- [ ] 60 FPS maintained on target devices
+- [ ] Demo-able artifact available to Marissa
+- [ ] No new S1/S2 bugs introduced
+
+## 9. Ceremonies
+
+### Sprint Planning
+- **When:** Monday 9am
+- **Duration:** 30 min
+- **Facilitator:** Marissa
+- **Participants:** All specialists (async OK)
+- **Input:** Marvin's READY list (delivered EOD Wednesday prior)
+- **Output:** `sprint-plan.md` + Owner Inbox Card
+- **Exit:** Every committed ticket has owner + estimate + ≥70% confidence
+
+### Daily Standup
+- **When:** Each working day by 10am local
+- **Duration:** Async — 3-line Inbox Card
+- **Format:** Yesterday / Today / Blockers → to Marissa
+- **Marissa** consolidates into daily digest card only if redlines emerge
+
+### Backlog Refinement
+- **When:** Wednesday 2pm
+- **Duration:** 30 min
+- **Facilitator:** Marvin
+- **Participants:** Marvin, Kelvin, Simone, Kendra (feasibility), Jasmine (test plans)
+- **Output:** Tickets move Spec'd → Ready
+
+### Sprint Review
+- **When:** Friday 2pm
+- **Duration:** 20 min
+- **Facilitator:** Marissa
+- **Participants:** Whole team
+- **Output:** Demo package + Inbox Card to Owner
+
+### Retrospective
+- **When:** Friday 2:20pm (bundled with Review)
+- **Duration:** 10 min
+- **Facilitator:** Marissa
+- **Output:** `retro.md` + any PROCESS amendments filed as Inbox Cards
+
+### Release Cut
+- **When:** Friday 4pm (if `develop` is stable)
+- **Duration:** 15 min
+- **Facilitator:** Terrell
+- **Tri-sign:** Terrell + Kendra + Marissa
+- **Output:** Signed tag on `main` + release notes + rollback plan
+
+### Tech Design Review
+- **When:** As-needed, Stage 3→4 handoff
+- **Duration:** 20 min
+- **Facilitator:** Kendra
+- **Participants:** Kendra, Terrell, Malik (if VFX-adjacent)
+- **Output:** Tech Design Doc approved OR redlines to address
+
+### ADR Review
+- **When:** Async, any time
+- **Facilitator:** Proposer (usually Kendra)
+- **Output:** ADR moves Proposed → Accepted / Rejected
+
+### Redline Escalation (ad-hoc)
+- **When:** Any time 60 FPS / launch date / compliance is at risk
+- **Facilitator:** Whoever detects it
+- **Output:** Inbox Card to Marissa immediately; she escalates to Owner if pillar-level
+
+## 10. Artifact Layout
 
 ```
 /
 ├─ CLAUDE.md             team identity + communication hierarchy
 ├─ PROCESS.md            this file
-├─ ROADMAP.md            sprint-by-sprint plan, updated each sprint
+├─ ROADMAP.md            sprint-by-sprint plan
 ├─ SECRETS.md            secret names (no values)
 ├─ docs/
-│  ├─ prd/               Kelvin's PRDs (Stage 3 output)
-│  └─ design/            Simone's design docs (Stage 3 output)
-├─ tickets/
-│  ├─ _README.md         ticket format + INVEST checklist
-│  ├─ RPM-001.md         each ready ticket
-│  ├─ BUG-NNN.md         QA-filed bugs from Stage 8
-│  └─ ...
-├─ comms/
-│  ├─ _README.md         comms archive convention
-│  └─ <person>/          per-person Inbox Cards
-├─ Assets/ Packages/ ProjectSettings/   Unity project
-└─ .github/workflows/    CI
+│  ├─ README.md          documentation index
+│  ├─ architecture/
+│  │  ├─ ARCHITECTURE.md          living top-level system doc (Kendra)
+│  │  ├─ DATA-FLOW.md             client↔server diagrams (Kendra + Terrell)
+│  │  └─ adr/                     immutable decision log
+│  │     └─ ADR-NNN-*.md
+│  ├─ design/
+│  │  ├─ game/                    Simone's player-facing design docs
+│  │  │  └─ DESIGN-NNN-*.md
+│  │  └─ tech/                    Kendra's per-feature technical designs
+│  │     └─ FEAT-NNN-*.md
+│  ├─ prd/                        Kelvin's PRDs
+│  │  └─ PRD-NNN-*.md
+│  ├─ qa/
+│  │  ├─ device-matrix.md
+│  │  ├─ regression-suite.md
+│  │  └─ test-plans/
+│  │     └─ TP-RPM-NNN.md
+│  └─ templates/                  copy-from templates for every artifact
+│     ├─ feature.md
+│     ├─ user-story.md
+│     ├─ prd.md
+│     ├─ game-design.md
+│     ├─ tech-design.md
+│     ├─ architecture.md
+│     ├─ adr.md
+│     ├─ test-plan.md
+│     ├─ bug-report.md
+│     ├─ sprint-plan.md
+│     ├─ retro.md
+│     └─ release-notes.md
+├─ tickets/                       Ready/In-Progress/Done tickets (Marvin owns)
+│  ├─ _README.md                  ticket numbering + lifecycle
+│  ├─ RPM-NNN.md                  user stories
+│  └─ BUG-NNN.md                  bug reports
+├─ comms/                         per-person Inbox Card archive
+├─ Assets/ Packages/ ProjectSettings/    Unity project
+└─ .github/workflows/             CI
 ```
 
-Folders marked above that don't exist yet will be created when their first artifact lands (lazy creation — no empty scaffolds).
+Folders not yet populated will be created lazily when their first artifact lands.
 
----
+## 11. Templates Index
+Canonical templates in [`docs/templates/`](docs/templates/). Copy, don't mutate.
 
-## Gap Analysis
+| Template | Used by | Stage |
+|---|---|---|
+| [feature.md](docs/templates/feature.md) | Marvin, Marissa | 2 |
+| [user-story.md](docs/templates/user-story.md) | Marvin | 4 |
+| [prd.md](docs/templates/prd.md) | Kelvin | 3 |
+| [game-design.md](docs/templates/game-design.md) | Simone | 3 |
+| [tech-design.md](docs/templates/tech-design.md) | Kendra | 3 |
+| [architecture.md](docs/templates/architecture.md) | Kendra | Continuous |
+| [adr.md](docs/templates/adr.md) | Kendra + reviewers | Any |
+| [test-plan.md](docs/templates/test-plan.md) | Jasmine | 4 |
+| [bug-report.md](docs/templates/bug-report.md) | Jasmine | 8 |
+| [sprint-plan.md](docs/templates/sprint-plan.md) | Marissa | 5 |
+| [retro.md](docs/templates/retro.md) | Marissa | End of sprint |
+| [release-notes.md](docs/templates/release-notes.md) | Terrell | 10 |
 
-Where ownership, artifacts, or DoD are fuzzy today:
+## 12. Metrics
+Tracked by Marissa, reported in each Retro:
+- **Velocity** — tickets/sprint, size-weighted (XS=1, S=2, M=5, L=10).
+- **Cycle time** — Ready → Done, median.
+- **Escaped defects** — bugs past QA but failing post-release.
+- **Owner approval rate** — % of Sprint Reviews accepted without redlines.
+- **DoR violation rate** — tickets that failed refinement, % of attempted.
 
-### Stage 4 — Elaboration (real gap)
-**No dedicated owner.** Kelvin has done some of this implicitly during Sprint 0 setup, but his agent role is **monetization strategy**, not ticket elaboration. Simone is fully loaded defining the Garage View + cross-platform input table. Marissa shouldn't produce work artifacts — she's meant to filter UP to the Owner, not generate ticket detail.
-
-Current symptom: tickets RPM-001 through RPM-008 exist in the Sprint 0 backlog (in this chat history and in ROADMAP.md), but there is **no** canonical `/tickets/RPM-001.md` file with the INVEST checklist, risk flags, or test plan. If Kendra opens RPM-001 on Monday, she'll work from memory and chat scrollback — which is exactly the failure mode this process exists to prevent.
-
-### Stage 5 — Sprint Planning (soft gap)
-No standing ritual yet. Sprint 0 was kicked off ad-hoc. Sprint 1 needs an explicit Monday planning moment — even if async — or tickets will still be slushy on Day 1.
-
-### Stage 8 — QA (latent gap)
-Jasmine is declared, but no actual builds to QA yet. This will be real-tested Sprint 1. If builds aren't reachable to her (no TestFlight / Play Internal slot, no PlayFab dev title), Stage 8 stalls and Stage 9 backs up.
-
----
-
-## Recommendations on Stage 4 Ownership
-
-Three viable options:
-
-### Option A — Hire a dedicated BET Lead
-- Single accountable owner for Stage 4.
-- Clean division: Kelvin = monetization economy, Simone = design fantasy, BET Lead = ready tickets.
-- Adds one agent; team goes 5F/4M.
-- **Risk:** one more seat at the Channel 2 table, slightly more coordination.
-- **Fit:** best if ticket-creation volume scales past Sprint 1.
-
-### Option B — Expand Kelvin's role to Lead PM + Elaboration
-- No new agent. Kelvin's system prompt expands to include ticket elaboration.
-- **Risk:** his monetization output dilutes; PRDs compete with tickets for his attention.
-- **Fit:** workable for very small sprints but breaks when the team ships parallel workstreams (which Sprint 1 already does with RPM-001/007/008 paired).
-
-### Option C — Shared Kelvin + Simone refinement session
-- Wednesday 30-min joint refinement; Marissa facilitates.
-- **Risk:** steals Marissa's filter-bandwidth; tickets bear two-parent syndrome (ownership ambiguity).
-- **Fit:** cheap to try; hard to sustain.
-
-### Process-Architect Recommendation
-**Option A.** The gap is concrete, the role is real, and Stage 4 is load-bearing for every other stage — if elaboration is sloppy, Stages 6–9 absorb the rework cost. One dedicated owner pays back inside a single sprint.
-
----
-
-## Amendments
+## 13. Amendments
 | Version | Date | Change | Approved by |
 |---|---|---|---|
-| 1.0 | 2026-04-17 | Initial process documentation. | pending |
+| 1.0 | 2026-04-17 | Initial process documentation (10-stage pipeline, gap analysis) | pending |
+| 2.0 | 2026-04-17 | Full agile playbook: philosophy, cadence, ceremonies, DoR/DoD, estimation, templates, metrics, architecture/design/test documentation | Owner (Roderick Prewitt) |

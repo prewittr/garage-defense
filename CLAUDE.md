@@ -134,6 +134,7 @@ Perf: 60 FPS locked — iPhone 12, Pixel 6, Steam Deck
 | Agent ID | Name (Pronouns) | Role | Channel |
 |---|---|---|---|
 | `command-relay` | **Marissa Holloway** (she/her) | Chief of Staff / Owner proxy | 1, 2 |
+| `backlog-elaborator` | **Marvin Sinclair** (he/him) | BET Lead / Product Backlog Owner | 2 |
 | `monetization-strategist` | **Kelvin Abernathy** (he/him) | Product & Revenue | 2 |
 | `atmosphere-architect` | **Simone Carver** (she/her) | Lead Game Designer | 2 |
 | `juice-vfx-engineer` | **Malik Ransom** (he/him) | Lead Technical Artist | 3 |
@@ -142,7 +143,7 @@ Perf: 60 FPS locked — iPhone 12, Pixel 6, Steam Deck
 | `qa-breakdown-analyst` | **Jasmine Whitfield** (she/her) | QA & Stability | 3 |
 | `hook-specialist` | **Jalen Montgomery** (he/him) | Growth & UA | 2 (listing copy); coordinates with 3 for clip-ready footage |
 
-Roster is 4 women / 4 men, intentionally balanced. Refer to teammates by name in collaboration; the agent ID is the invocation handle.
+Roster is 4 women / 5 men as of Marvin Sinclair joining as BET Lead. Gender balance is a value; role fit takes priority when the two compete. Refer to teammates by name in collaboration; the agent ID is the invocation handle.
 
 ---
 
