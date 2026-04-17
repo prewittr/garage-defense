@@ -14,6 +14,16 @@
 ## Module Map
 Top-level assemblies (`.asmdef`) and their responsibilities. Circular references are a PR blocker.
 
+Diagram with Mermaid:
+
+```mermaid
+graph TD
+    App[Rpm.App] --> Core[Rpm.Core]
+    App --> Feature1[Rpm.Feature.*]
+    Feature1 --> Core
+    Feature1 -.external SDK.-> External[Third-party]
+```
+
 | Assembly | Depends on | Responsibility |
 |---|---|---|
 | `Rpm.Core` | — | Types, interfaces, constants |

@@ -18,6 +18,7 @@ Canonical home for architecture, design, PRDs, QA, and reusable templates.
 2. **One file per thing.** One PRD per product decision. One ADR per architectural decision. One user story per ticket.
 3. **Immutable once ACCEPTED** for ADRs and Retros. Everything else is living until DONE.
 4. **Numbered prefixes** on filenames: `PRD-NNN`, `RPM-NNN`, `ADR-NNN`, `FEAT-NNN`, `TP-RPM-NNN`, `BUG-NNN`.
+5. **Diagrams use Mermaid.** Renders natively in GitHub and VSCode (Mermaid extension). No ASCII art, no external image tools. Use ` ```mermaid ` fenced blocks.
 
 ## Links
 - [PROCESS.md](../PROCESS.md) — full agile playbook

@@ -21,12 +21,24 @@
 - **Persistence:** <ScriptableObject / PlayFab player data / save service>
 
 ## Interaction / Sequence
-<Mermaid or ASCII sequence diagram of key flows. Example:>
+<Use Mermaid. Example:>
 
-```
-Player → InputSystem → DragHandler → ScrapService → DoorController → HPStore
-                                                         ↓
-                                                    DamageEvent → JuiceBus
+```mermaid
+sequenceDiagram
+    participant P as Player
+    participant I as InputSystem
+    participant D as DragHandler
+    participant S as ScrapService
+    participant C as DoorController
+    participant H as HPStore
+    participant J as JuiceBus
+
+    P->>I: Drag input
+    I->>D: DragStart / DragEnd
+    D->>S: RequestPlacement(point)
+    S->>C: ApplyRepair(point, amount)
+    C->>H: UpdateHP(delta)
+    C->>J: DamageOrRepairEvent
 ```
 
 ## Performance Budget
