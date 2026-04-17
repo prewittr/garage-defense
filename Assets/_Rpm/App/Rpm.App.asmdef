@@ -1,0 +1,22 @@
+{
+  "name": "Rpm.App",
+  "rootNamespace": "Rpm.App",
+  "references": [
+    "Rpm.Core",
+    "Rpm.Input",
+    "Rpm.Gameplay.Door",
+    "Rpm.Gameplay.Scrap",
+    "Rpm.Juice",
+    "UniTask",
+    "VContainer"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}
