@@ -100,4 +100,12 @@ Sprint 0 proved we can stand up a team and a repo. Now we have to prove the **co
 
 ---
 
+## Deferred Hiring Decisions
+| Role | Status | Trigger to revisit |
+|---|---|---|
+| Narrative Lead / World-Builder | **Deferred post-gate** (Owner decision, 2026-04-17) | After prototype gate 2026-05-18 if go-signal |
+| BET Lead | **Pending** (see [owner-010](comms/owner/010-process-documented.md)) | Needed before Sprint 1 kickoff 2026-04-20 |
+
+---
+
 *Any change to this roadmap is an Owner-level decision and ships via a CoS Inbox Card with A/B options.*
