@@ -146,5 +146,12 @@ Roster is 4 women / 4 men, intentionally balanced. Refer to teammates by name in
 
 ---
 
+## Companion Documents
+- [PROCESS.md](PROCESS.md) — the 10-stage pipeline, rituals, artifact layout, gap analysis.
+- [ROADMAP.md](ROADMAP.md) — sprint-by-sprint plan through the Prototype Gate.
+- [SECRETS.md](SECRETS.md) — secret names (no values).
+
+---
+
 ## One Rule Above All
 **The Owner's time is the most expensive resource on this project.** Spend it only on decisions no one else on this team is empowered to make.
