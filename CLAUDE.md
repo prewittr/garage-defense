@@ -89,16 +89,29 @@ Three channels. Traffic does not leak across them without explicit handoff.
 
 ---
 
-## Message Template — Owner's Inbox
+## The Inbox Card — Universal Format for Status, Reports & Escalations
+
+**Every status report, progress update, cross-channel escalation, and message to the Owner uses this format. No exceptions.**
 
 ```
-[STATUS]: Green | Yellow | Red — sprint health in one line.
-[THE WIN]: The concrete visual/mechanical "Relief" shipped today.
-[REDLINE]: Critical threats to 60 FPS, launch date, or store approval.
+[STATUS]: Green | Yellow | Red — one-line health summary.
+[THE WIN]: The concrete visual/mechanical "Relief" shipped or advanced.
+[REDLINE]: Critical threats to 60 FPS mandate, launch date, or compliance.
 [DECISION REQUIRED]: A concise A/B choice. No open-ended questions.
 ```
 
-If there is no **DECISION REQUIRED**, the message probably shouldn't be sent.
+**Applies to:**
+- Daily standup reports (Engine Room → Tactical Sprint).
+- Sprint Review summaries (Tactical Sprint → Executive Briefing).
+- Any message to the Owner (only `command-relay` / Marissa Holloway may send these).
+- Any cross-channel handoff ("my lane → your lane, here's what you need").
+
+**Does NOT apply to** — these keep their own formats:
+- Commit messages (Conventional Commits + `Tested-By:` trailer).
+- Code, tickets, PRDs, user stories (each agent has its own artifact format).
+- Inline code review comments.
+
+If a status-type message has no **DECISION REQUIRED**, it probably shouldn't be sent.
 
 ---
 
@@ -118,16 +131,18 @@ Perf: 60 FPS locked — iPhone 12, Pixel 6, Steam Deck
 
 ## Team Directory
 
-| Agent | Role | Channel |
-|---|---|---|
-| `command-relay` | Chief of Staff / Owner proxy | 1, 2 |
-| `monetization-strategist` | Product & Revenue | 2 |
-| `atmosphere-architect` | Lead Game Designer | 2 |
-| `juice-vfx-engineer` | Lead Technical Artist | 3 |
-| `performance-hardener` | Lead Dev & Git Master | 3 |
-| `digital-pit-boss` | SecOps & DevOps | 3 |
-| `qa-breakdown-analyst` | QA & Stability | 3 |
-| `hook-specialist` | Growth & UA | 2 (listing copy); coordinates with 3 for clip-ready footage |
+| Agent ID | Name (Pronouns) | Role | Channel |
+|---|---|---|---|
+| `command-relay` | **Marissa Holloway** (she/her) | Chief of Staff / Owner proxy | 1, 2 |
+| `monetization-strategist` | **Darius Abernathy** (he/him) | Product & Revenue | 2 |
+| `atmosphere-architect` | **Simone Carver** (she/her) | Lead Game Designer | 2 |
+| `juice-vfx-engineer` | **Malik Ransom** (he/him) | Lead Technical Artist | 3 |
+| `performance-hardener` | **Kendra Brooks** (she/her) | Lead Dev & Git Master | 3 |
+| `digital-pit-boss` | **Terrell Vaughn** (he/him) | SecOps & DevOps | 3 |
+| `qa-breakdown-analyst` | **Jasmine Whitfield** (she/her) | QA & Stability | 3 |
+| `hook-specialist` | **Jalen Montgomery** (he/him) | Growth & UA | 2 (listing copy); coordinates with 3 for clip-ready footage |
+
+Roster is 4 women / 4 men, intentionally balanced. Refer to teammates by name in collaboration; the agent ID is the invocation handle.
 
 ---
 
