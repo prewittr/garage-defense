@@ -64,7 +64,10 @@ namespace Rpm.Juice
 
         private void OnRepair(RepairEvent evt)
         {
-            if (_source is null || _clip is null) return;
+            // Unity-aware null check: `is null` bypasses UnityEngine.Object's
+            // overloaded `==` and fails to catch unassigned [SerializeField]
+            // references. Using `== null` respects Unity's fake-null sentinel.
+            if (_source == null || _clip == null) return;
             _source.PlayOneShot(_clip);
         }
     }
