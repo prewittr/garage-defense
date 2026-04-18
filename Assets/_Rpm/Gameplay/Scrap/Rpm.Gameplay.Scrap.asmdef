@@ -3,7 +3,8 @@
   "rootNamespace": "Rpm.Gameplay.Scrap",
   "references": [
     "Rpm.Core",
-    "Rpm.Input"
+    "Rpm.Input",
+    "VContainer"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

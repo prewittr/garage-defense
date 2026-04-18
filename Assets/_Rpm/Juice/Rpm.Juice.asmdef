@@ -2,7 +2,8 @@
   "name": "Rpm.Juice",
   "rootNamespace": "Rpm.Juice",
   "references": [
-    "Rpm.Core"
+    "Rpm.Core",
+    "VContainer"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
