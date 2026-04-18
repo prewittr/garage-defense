@@ -2,13 +2,20 @@ name: CI
 
 on:
   pull_request:
-    branches: [develop, main]
+    branches: [develop, main, 'feature/**']
   push:
     branches: [develop]
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+  statuses: write
 
 jobs:
   lint:
@@ -22,7 +29,7 @@ jobs:
         uses: editorconfig-checker/action-editorconfig-checker@v2
 
   unity-tests:
-    name: Unity EditMode + PlayMode tests
+    name: Unity EditMode tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,13 +41,19 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
+      # NOTE: testMode is 'editmode' not 'all' — PlayMode on Unity 6000.0.73f1
+      # under game-ci/unity-test-runner@v4 flakes with SIGSEGV (exit 139)
+      # at container cleanup. Tests themselves pass; container crashes during
+      # license-client shutdown between EditMode and PlayMode phases.
+      # Revisit when: (a) we actually author PlayMode tests, or
+      # (b) game-ci ships a fix for the 6000.0.x PlayMode container lifecycle.
       - uses: game-ci/unity-test-runner@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          testMode: all
+          testMode: editmode
           checkName: Unity Test Results
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 

@@ -37,7 +37,7 @@
 
 | Tier | Device | Apply? | Notes |
 |---|---|---|---|
-| Editor | Unity 6000.0.32f1 on WSL / Windows | **Yes** | Primary validation surface Sprint 1. |
+| Editor | Unity 6000.0.73f1 on WSL / Windows | **Yes** | Primary validation surface Sprint 1. |
 | Windows Standalone | Dev build from CI | **Yes** | P0 cases only. |
 | iPhone 12 | — | **No (Sprint 2)** | Physical device + TestFlight slot required. |
 | Pixel 6 | — | **No (Sprint 2)** | Physical device + Play Internal slot required. |

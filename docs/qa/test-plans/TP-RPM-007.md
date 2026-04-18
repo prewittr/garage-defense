@@ -12,7 +12,7 @@
 
 ## Preconditions
 - Fresh clone of `feature/tactile-terror`.
-- Unity 6000.0.32f1 installed locally (Windows Unity Hub activation).
+- Unity 6000.0.73f1 installed locally (Windows Unity Hub activation).
 
 ## Test Cases
 
@@ -31,7 +31,7 @@
 
 | Tier | Device | Apply? |
 |---|---|---|
-| Editor | Unity 6000.0.32f1 | **Yes** |
+| Editor | Unity 6000.0.73f1 | **Yes** |
 | Windows Standalone | CI dev build | **Yes** |
 | Other platforms | — | **No** (infrastructure change; no user-visible surface) |
 

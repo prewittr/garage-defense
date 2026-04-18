@@ -6,7 +6,7 @@
 
 ## Context & Constraints
 - **Target platforms:** iOS, Android, Steam (Windows/macOS/Linux/Deck), PS5, Xbox Series X|S.
-- **Engine:** Unity 6000.0.32f1 LTS · URP.
+- **Engine:** Unity 6000.0.73f1 LTS · URP. *(Update to current pinned version whenever ADR-002 bumps the track.)*
 - **Perf mandate:** 60 FPS on baseline (iPhone 12 / Pixel 6 / Steam Deck).
 - **Team scale:** 9 specialists + Owner.
 - **Third-party SDKs:** PlayFab, game-ci runners.

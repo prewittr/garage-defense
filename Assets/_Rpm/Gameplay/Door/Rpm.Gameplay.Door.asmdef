@@ -1,17 +1,15 @@
 {
-  "name": "Rpm",
-  "rootNamespace": "Rpm",
+  "name": "Rpm.Gameplay.Door",
+  "rootNamespace": "Rpm.Gameplay.Door",
   "references": [
-    "Unity.InputSystem",
-    "UniTask",
-    "VContainer"
+    "Rpm.Core"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
   "allowUnsafeCode": false,
   "overrideReferences": false,
   "precompiledReferences": [],
-  "autoReferenced": false,
+  "autoReferenced": true,
   "defineConstraints": [],
   "versionDefines": [],
   "noEngineReferences": false
