@@ -2,7 +2,8 @@
   "name": "Rpm.Gameplay.Door",
   "rootNamespace": "Rpm.Gameplay.Door",
   "references": [
-    "Rpm.Core"
+    "Rpm.Core",
+    "VContainer"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],
