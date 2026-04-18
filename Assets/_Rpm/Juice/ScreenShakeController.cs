@@ -67,7 +67,11 @@ namespace Rpm.Juice
 
         private void Awake()
         {
-            _target ??= transform;
+            // Unity's fake-null: for [SerializeField] references, `??=` does
+            // not trigger because the field compares non-null via C# but
+            // throws UnassignedReferenceException on dereference. Use the
+            // Unity-aware `==` comparison to fall back to this Transform.
+            if (_target == null) _target = transform;
             _restPosition = _target.localPosition;
             _handler = OnDamage;
         }

@@ -3,7 +3,8 @@
   "rootNamespace": "Rpm.Input",
   "references": [
     "Rpm.Core",
-    "Unity.InputSystem"
+    "Unity.InputSystem",
+    "VContainer"
   ],
   "includePlatforms": [],
   "excludePlatforms": [],

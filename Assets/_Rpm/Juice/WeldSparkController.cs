@@ -78,7 +78,10 @@ namespace Rpm.Juice
 
         private void OnRepair(RepairEvent evt)
         {
-            if (_emitter is null || _particlesPerBurst <= 0) return;
+            // Unity-aware null check: `is null` bypasses UnityEngine.Object's
+            // overloaded `==` and fails to catch unassigned [SerializeField]
+            // references. Using `== null` respects Unity's fake-null sentinel.
+            if (_emitter == null || _particlesPerBurst <= 0) return;
 
             Vector3 worldPos;
             if (_doorPlane != null)

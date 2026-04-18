@@ -73,7 +73,10 @@ namespace Rpm.Juice
 
         private void OnDamage(DamageEvent evt)
         {
-            if (_emitter is null || _particlesPerBurst <= 0) return;
+            // Unity-aware null check: `is null` bypasses UnityEngine.Object's
+            // overloaded `==` and fails to catch unassigned [SerializeField]
+            // references. Using `== null` respects Unity's fake-null sentinel.
+            if (_emitter == null || _particlesPerBurst <= 0) return;
             // Use Emit(int) with a count — the simplest zero-alloc path.
             // The emitter's local position determines the rafter origin;
             // the impact coord is intentionally not threaded through here
