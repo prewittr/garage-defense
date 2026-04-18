@@ -31,7 +31,7 @@
 | Tier | Device | Apply? | Notes |
 |---|---|---|---|
 | CI runner | ubuntu-latest | **Yes** | Primary gate. |
-| Editor | Unity 6000.0.32f1 desktop | **Yes** | Manual spot-check, numbers within 10% of CI. |
+| Editor | Unity 6000.0.73f1 desktop | **Yes** | Manual spot-check, numbers within 10% of CI. |
 | Windows Standalone | CI dev build | **Yes** | Confirms numbers aren't Editor-inflated. |
 | iPhone 12 / Pixel 6 | — | **No (Sprint 2)** | Device-farm probe lands Sprint 2. |
 

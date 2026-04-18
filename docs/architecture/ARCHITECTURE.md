@@ -11,7 +11,7 @@
 ## 1. Context & Constraints
 
 - **Target platforms:** iOS · Android · Steam (Windows/macOS/Linux/Deck) · PlayStation 5 · Xbox Series X|S
-- **Engine:** Unity **6000.0.32f1** LTS · URP
+- **Engine:** Unity **6000.0.73f1** LTS · URP (bumped from `6000.0.32f1` on 2026-04-17 per [ADR-002](adr/ADR-002-unity-version-policy.md) after Unity Hub flagged `6000.0.32f1` for a known security issue)
 - **Perf mandate:** **60 FPS locked** on baseline devices (iPhone 12, Pixel 6, Steam Deck)
 - **Input latency budget:** **<12ms p95** (RPM-008 gate)
 - **Team scale:** 10 agents + Owner

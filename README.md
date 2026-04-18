@@ -16,6 +16,6 @@ A claustrophobic survival-thriller prototype. One greasy mechanic. One garage do
 - `release/*` / `hotfix/*` — stabilization.
 
 ## Quick Start
-1. Install Unity Hub and Unity 6000.0.32f1 (or the version pinned in `ProjectSettings/ProjectVersion.txt`).
+1. Install Unity Hub and Unity 6000.0.73f1 (or the version pinned in `ProjectSettings/ProjectVersion.txt`).
 2. Clone with LFS: `git lfs install && git clone <repo>`.
 3. Open the project root in Unity Hub.
