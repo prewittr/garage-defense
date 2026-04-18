@@ -6,6 +6,7 @@ using Rpm.Core.Events;
 using Rpm.Gameplay.Door;
 using Rpm.Gameplay.Scrap;
 using Rpm.Input.Drag;
+using Rpm.Juice;
 using VContainer;
 using VContainer.Unity;
 
@@ -88,6 +89,28 @@ namespace Rpm.App
 
             builder
                 .Register<DamagePointRegistry>(Lifetime.Scoped);
+
+            // --- Feel layer (Malik's RPM-001 slice) ---
+            // Scoped MonoBehaviours wired to scene prefabs (camera rig,
+            // dust emitter, weld emitter, audio sources). All five
+            // subscribe to IEventBus events; none allocate on the event
+            // path. Registered as RegisterComponentInHierarchy so
+            // VContainer binds to the prefab-authored instances at scene
+            // load — Editor-deferred wiring per RPM-001 Notes.
+            builder
+                .RegisterComponentInHierarchy<ScreenShakeController>();
+
+            builder
+                .RegisterComponentInHierarchy<DustFallController>();
+
+            builder
+                .RegisterComponentInHierarchy<WeldSparkController>();
+
+            builder
+                .RegisterComponentInHierarchy<ImpactAudio>();
+
+            builder
+                .RegisterComponentInHierarchy<WeldAudio>();
         }
     }
 }
