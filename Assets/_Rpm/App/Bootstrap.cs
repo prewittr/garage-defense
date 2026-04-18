@@ -65,6 +65,13 @@ namespace Rpm.App
                 .As<IDragInput>()
                 .AsSelf();
 
+            // DragInputDriver is the scene-resident MonoBehaviour that
+            // ticks the DragInput singleton each frame. Registered via
+            // RegisterComponentInHierarchy so VContainer finds the
+            // scene-placed driver and injects DragInput into it at load.
+            builder
+                .RegisterComponentInHierarchy<DragInputDriver>();
+
             // --- Scoped gameplay (per-scene) ---
             // DoorController is a MonoBehaviour; binding via
             // RegisterComponentInHierarchy means VContainer finds the
