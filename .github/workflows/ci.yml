@@ -2,13 +2,20 @@ name: CI
 
 on:
   pull_request:
-    branches: [develop, main]
+    branches: [develop, main, 'feature/**']
   push:
     branches: [develop]
+  workflow_dispatch:
 
 concurrency:
   group: ci-${{ github.ref }}
   cancel-in-progress: true
+
+permissions:
+  contents: read
+  checks: write
+  pull-requests: write
+  statuses: write
 
 jobs:
   lint:
@@ -22,7 +29,7 @@ jobs:
         uses: editorconfig-checker/action-editorconfig-checker@v2
 
   unity-tests:
-    name: Unity EditMode + PlayMode tests
+    name: Unity EditMode tests
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -34,19 +41,84 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
+      # NOTE: testMode is 'editmode' not 'all' — PlayMode on Unity 6000.0.73f1
+      # under game-ci/unity-test-runner@v4 flakes with SIGSEGV (exit 139)
+      # at container cleanup. Tests themselves pass; container crashes during
+      # license-client shutdown between EditMode and PlayMode phases.
+      # Revisit when: (a) we actually author PlayMode tests, or
+      # (b) game-ci ships a fix for the 6000.0.x PlayMode container lifecycle.
       - uses: game-ci/unity-test-runner@v4
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
-          testMode: all
+          testMode: editmode
           checkName: Unity Test Results
           githubToken: ${{ secrets.GITHUB_TOKEN }}
+      # RPM-008: upload the latency report if the Editor-deferred LatencyProbe
+      # scene produced one. `if-no-files-found: ignore` keeps this forward-compatible
+      # until `Scenes/LatencyProbe.unity` lands.
+      - name: Upload latency report (if produced)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: latency-report
+          path: Builds/latency-report.json
+          if-no-files-found: ignore
+          retention-days: 30
 
   latency-gate:
     name: Input Latency Gate (RPM-008)
     runs-on: ubuntu-latest
     needs: unity-tests
     steps:
-      - run: echo "Placeholder — wires to device-farm latency probe once harness lands (RPM-008)."
+      - name: Download latency report (if available)
+        uses: actions/download-artifact@v4
+        with:
+          name: latency-report
+          path: latency-report-download
+        continue-on-error: true
+
+      - name: Evaluate p95 against 12ms gate
+        shell: bash
+        run: |
+          set -euo pipefail
+          REPORT="latency-report-download/latency-report.json"
+
+          if [ ! -f "$REPORT" ]; then
+            echo "::warning title=latency-gate::No latency report artifact available yet — probe scene (Scenes/LatencyProbe.unity) is Editor-deferred. Gate is green by default until the probe produces a real report."
+            echo "### Input Latency Gate (RPM-008)" >> "$GITHUB_STEP_SUMMARY"
+            echo "" >> "$GITHUB_STEP_SUMMARY"
+            echo "_No report available — probe scene is Editor-deferred. Gate skipped._" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
+          fi
+
+          # Parse p50 and p95 without requiring jq (not guaranteed on all runners).
+          # Fallback to python3, which is present on ubuntu-latest.
+          P50=$(python3 -c "import json,sys; print(json.load(open('$REPORT'))['p50'])")
+          P95=$(python3 -c "import json,sys; print(json.load(open('$REPORT'))['p95'])")
+
+          echo "p50: ${P50}ms"
+          echo "p95: ${P95}ms"
+
+          # Threshold check via python for float safety.
+          GATE=$(python3 -c "print('PASS' if float('$P95') <= 12.0 else 'FAIL')")
+
+          {
+            echo "### Input Latency Gate (RPM-008)"
+            echo ""
+            echo "| metric | value |"
+            echo "|---|---|"
+            echo "| p50 | ${P50} ms |"
+            echo "| p95 | ${P95} ms |"
+            echo "| gate threshold | 12.00 ms (p95) |"
+            echo "| result | **${GATE}** |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+          if [ "$GATE" = "FAIL" ]; then
+            echo "::error title=latency-gate::p95 ${P95}ms exceeds the 12ms budget (p50: ${P50}ms). See RPM-008 for redline protocol."
+            exit 1
+          fi
+
+          echo "Latency gate PASS — p95 ${P95}ms ≤ 12.00ms."
